@@ -34,6 +34,10 @@ project {
 
 object AppA : BuildType({
     name = "app a"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 })
 
 object HttpsGithubComMarimargaryan86parallelTestsGit : GitVcsRoot({
