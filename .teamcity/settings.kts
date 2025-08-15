@@ -28,7 +28,13 @@ version = "2025.07"
 project {
 
     vcsRoot(HttpsGithubComMarimargaryan86parallelTestsGit)
+
+    buildType(AppA)
 }
+
+object AppA : BuildType({
+    name = "app a"
+})
 
 object HttpsGithubComMarimargaryan86parallelTestsGit : GitVcsRoot({
     name = "https://github.com/marimargaryan86/parallel-tests.git"
