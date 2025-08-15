@@ -1,6 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildSteps.gitHubRelease
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
@@ -30,34 +28,7 @@ version = "2025.07"
 project {
 
     vcsRoot(HttpsGithubComMarimargaryan86parallelTestsGit)
-
-    buildType(Build)
 }
-
-object Build : BuildType({
-    name = "Build"
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
-    steps {
-        gitHubRelease {
-            name = "mono2"
-            id = "mono"
-            enabled = false
-            targetVcsRootId = "SampleMonorepoTc_HttpsGithubComMarimargaryan86parallelTestsGit"
-            tagName = "mono2"
-            latest = true
-            authType = vcsRoot()
-        }
-    }
-
-    triggers {
-        vcs {
-        }
-    }
-})
 
 object HttpsGithubComMarimargaryan86parallelTestsGit : GitVcsRoot({
     name = "https://github.com/marimargaryan86/parallel-tests.git"
