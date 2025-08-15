@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -27,6 +28,8 @@ version = "2025.07"
 
 project {
 
+    vcsRoot(HttpsGithubComMarimargaryan86parallelTestsGit)
+
     buildType(Build)
 }
 
@@ -35,10 +38,21 @@ object Build : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+        root(HttpsGithubComMarimargaryan86parallelTestsGit)
     }
 
     triggers {
         vcs {
         }
+    }
+})
+
+object HttpsGithubComMarimargaryan86parallelTestsGit : GitVcsRoot({
+    name = "https://github.com/marimargaryan86/parallel-tests.git"
+    url = "https://github.com/marimargaryan86/parallel-tests.git"
+    branch = "refs/heads/main"
+    authMethod = password {
+        userName = "marimargaryan86"
+        password = "credentialsJSON:50c80707-6bd4-4674-a601-522df8ad2c5a"
     }
 })
