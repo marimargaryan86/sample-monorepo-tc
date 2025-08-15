@@ -46,6 +46,7 @@ object Build : BuildType({
         gitHubRelease {
             name = "mono2"
             id = "mono"
+            enabled = false
             targetVcsRootId = "SampleMonorepoTc_HttpsGithubComMarimargaryan86parallelTestsGit"
             tagName = "mono2"
             latest = true
