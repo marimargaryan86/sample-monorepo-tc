@@ -44,10 +44,10 @@ object Build : BuildType({
 
     steps {
         gitHubRelease {
-            name = "mono"
+            name = "mono2"
             id = "mono"
-            targetVcsRootId = "SampleMonorepoTc_HttpsGithubComMarimargaryan86sampleMonorepoTcGitRefsHeadsMain"
-            tagName = "mono"
+            targetVcsRootId = "SampleMonorepoTc_HttpsGithubComMarimargaryan86parallelTestsGit"
+            tagName = "mono2"
             latest = true
             authType = vcsRoot()
         }
