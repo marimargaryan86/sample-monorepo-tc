@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.gitHubRelease
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
@@ -39,6 +40,17 @@ object Build : BuildType({
     vcs {
         root(DslContext.settingsRoot)
         root(HttpsGithubComMarimargaryan86parallelTestsGit)
+    }
+
+    steps {
+        gitHubRelease {
+            name = "mono"
+            id = "mono"
+            targetVcsRootId = "SampleMonorepoTc_HttpsGithubComMarimargaryan86sampleMonorepoTcGitRefsHeadsMain"
+            tagName = "mono"
+            latest = true
+            authType = vcsRoot()
+        }
     }
 
     triggers {
